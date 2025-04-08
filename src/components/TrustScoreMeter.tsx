@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Progress } from "@/components/ui/progress";
+import { cn } from "@/lib/utils";
 
 interface TrustScoreMeterProps {
   score: number;
@@ -47,8 +48,7 @@ const TrustScoreMeter: React.FC<TrustScoreMeterProps> = ({
       <div className="relative">
         <Progress 
           value={score} 
-          className={`${sizeClasses[size]} bg-gray-700`}
-          indicatorClassName={getColor()}
+          className={cn(sizeClasses[size], "bg-gray-700", getColor())}
         />
         {showLabel && (
           <div className="mt-1 text-right">

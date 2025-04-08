@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { PieChart, BarChart, Trending, AreaChart } from 'lucide-react';
+import { PieChart, BarChart, TrendingUp, AreaChart } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { LineChart, Line, BarChart as RechartsBarChart, Bar, PieChart as RechartsPieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import PageLayout from '@/components/PageLayout';
@@ -62,7 +61,7 @@ const Analytics: React.FC = () => {
           <Card className="glass-panel rounded-xl">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Trending className="h-5 w-5 text-reputex-info" />
+                <TrendingUp className="h-5 w-5 text-reputex-info" />
                 <span>Trust Score Trend</span>
               </CardTitle>
             </CardHeader>
