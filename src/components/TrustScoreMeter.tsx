@@ -8,6 +8,7 @@ interface TrustScoreMeterProps {
   size?: 'small' | 'medium' | 'large';
   showLabel?: boolean;
   className?: string;
+  animated?: boolean;
 }
 
 const TrustScoreMeter: React.FC<TrustScoreMeterProps> = ({
@@ -15,11 +16,12 @@ const TrustScoreMeter: React.FC<TrustScoreMeterProps> = ({
   size = 'medium',
   showLabel = true,
   className = '',
+  animated = false,
 }) => {
   // Determine color based on score
   const getColor = () => {
     if (score >= 70) return 'bg-reputex-safe shadow-glow-green';
-    if (score >= 40) return 'bg-reputex-warning shadow-glow-red';
+    if (score >= 40) return 'bg-reputex-warning shadow-glow-yellow';
     return 'bg-reputex-danger shadow-glow-red';
   };
 
@@ -48,7 +50,12 @@ const TrustScoreMeter: React.FC<TrustScoreMeterProps> = ({
       <div className="relative">
         <Progress 
           value={score} 
-          className={cn(sizeClasses[size], "bg-gray-700", getColor())}
+          className={cn(
+            sizeClasses[size], 
+            "bg-gray-700", 
+            getColor(),
+            animated && "transition-all duration-1000 ease-in-out"
+          )}
         />
         {showLabel && (
           <div className="mt-1 text-right">
